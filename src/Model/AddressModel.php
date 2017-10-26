@@ -65,7 +65,8 @@ class AddressModel implements ArrayAccess
         'state' => 'string',
         'iso_country' => 'string',
         'latitude' => 'float',
-        'longitude' => 'float'
+        'longitude' => 'float',
+        'contact_person' => 'string'
     ];
 
     /**
@@ -84,7 +85,8 @@ class AddressModel implements ArrayAccess
         'state' => null,
         'iso_country' => null,
         'latitude' => 'float',
-        'longitude' => 'float'
+        'longitude' => 'float',
+        'contact_person' => null
     ];
 
     public static function swaggerTypes()
@@ -113,7 +115,8 @@ class AddressModel implements ArrayAccess
         'state' => 'state',
         'iso_country' => 'iso_country',
         'latitude' => 'latitude',
-        'longitude' => 'longitude'
+        'longitude' => 'longitude',
+        'contact_person' => 'contact_person'
     ];
 
 
@@ -133,7 +136,8 @@ class AddressModel implements ArrayAccess
         'state' => 'setState',
         'iso_country' => 'setIsoCountry',
         'latitude' => 'setLatitude',
-        'longitude' => 'setLongitude'
+        'longitude' => 'setLongitude',
+        'contact_person' => 'setContactPerson'
     ];
 
 
@@ -153,7 +157,8 @@ class AddressModel implements ArrayAccess
         'state' => 'getState',
         'iso_country' => 'getIsoCountry',
         'latitude' => 'getLatitude',
-        'longitude' => 'getLongitude'
+        'longitude' => 'getLongitude',
+        'contact_person' => 'getContactPerson'
     ];
 
     public static function attributeMap()
@@ -199,6 +204,7 @@ class AddressModel implements ArrayAccess
         $this->container['iso_country'] = isset($data['iso_country']) ? $data['iso_country'] : null;
         $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
         $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
+        $this->container['contact_person'] = isset($data['contact_person']) ? $data['contact_person'] : null;
     }
 
     /**
@@ -474,6 +480,27 @@ class AddressModel implements ArrayAccess
     public function setLongitude($longitude)
     {
         $this->container['longitude'] = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact_person
+     * @return string
+     */
+    public function getContactPerson()
+    {
+        return $this->container['contact_person'];
+    }
+
+    /**
+     * Sets contact_person
+     * @param string $contact_person
+     * @return $this
+     */
+    public function setContactPerson($contact_person)
+    {
+        $this->container['contact_person'] = $contact_person;
 
         return $this;
     }

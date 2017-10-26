@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiResponse
+ * NoteModel
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace BumbalAccountPortal\Model;
 use \ArrayAccess;
 
 /**
- * ApiResponse Class Doc Comment
+ * NoteModel Class Doc Comment
  *
  * @category    Class
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ApiResponse implements ArrayAccess
+class NoteModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,17 +47,20 @@ class ApiResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ApiResponse';
+    protected static $swaggerModelName = 'NoteModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'type' => 'string',
-        'message' => 'string',
-        'additional_data' => 'object'
+        'id' => 'int',
+        'object_id' => 'int',
+        'note_category_id' => 'int',
+        'note_category_name' => 'string',
+        'title' => 'string',
+        'visible_for_driver' => 'bool',
+        'content' => 'string'
     ];
 
     /**
@@ -65,10 +68,13 @@ class ApiResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'type' => null,
-        'message' => null,
-        'additional_data' => null
+        'id' => 'int64',
+        'object_id' => null,
+        'note_category_id' => null,
+        'note_category_name' => null,
+        'title' => null,
+        'visible_for_driver' => null,
+        'content' => null
     ];
 
     public static function swaggerTypes()
@@ -86,10 +92,13 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'type' => 'type',
-        'message' => 'message',
-        'additional_data' => 'additional_data'
+        'id' => 'id',
+        'object_id' => 'object_id',
+        'note_category_id' => 'note_category_id',
+        'note_category_name' => 'note_category_name',
+        'title' => 'title',
+        'visible_for_driver' => 'visible_for_driver',
+        'content' => 'content'
     ];
 
 
@@ -98,10 +107,13 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'type' => 'setType',
-        'message' => 'setMessage',
-        'additional_data' => 'setAdditionalData'
+        'id' => 'setId',
+        'object_id' => 'setObjectId',
+        'note_category_id' => 'setNoteCategoryId',
+        'note_category_name' => 'setNoteCategoryName',
+        'title' => 'setTitle',
+        'visible_for_driver' => 'setVisibleForDriver',
+        'content' => 'setContent'
     ];
 
 
@@ -110,10 +122,13 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'type' => 'getType',
-        'message' => 'getMessage',
-        'additional_data' => 'getAdditionalData'
+        'id' => 'getId',
+        'object_id' => 'getObjectId',
+        'note_category_id' => 'getNoteCategoryId',
+        'note_category_name' => 'getNoteCategoryName',
+        'title' => 'getTitle',
+        'visible_for_driver' => 'getVisibleForDriver',
+        'content' => 'getContent'
     ];
 
     public static function attributeMap()
@@ -147,10 +162,13 @@ class ApiResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['object_id'] = isset($data['object_id']) ? $data['object_id'] : null;
+        $this->container['note_category_id'] = isset($data['note_category_id']) ? $data['note_category_id'] : null;
+        $this->container['note_category_name'] = isset($data['note_category_name']) ? $data['note_category_name'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['visible_for_driver'] = isset($data['visible_for_driver']) ? $data['visible_for_driver'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
     }
 
     /**
@@ -162,6 +180,9 @@ class ApiResponse implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['id'] === null) {
+            $invalid_properties[] = "'id' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -174,90 +195,156 @@ class ApiResponse implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['id'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets code
+     * Gets id
      * @return int
      */
-    public function getCode()
+    public function getId()
     {
-        return $this->container['code'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets code
-     * @param int $code
+     * Sets id
+     * @param int $id Unique Identifier
      * @return $this
      */
-    public function setCode($code)
+    public function setId($id)
     {
-        $this->container['code'] = $code;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets object_id
+     * @return int
+     */
+    public function getObjectId()
+    {
+        return $this->container['object_id'];
+    }
+
+    /**
+     * Sets object_id
+     * @param int $object_id Object ID
+     * @return $this
+     */
+    public function setObjectId($object_id)
+    {
+        $this->container['object_id'] = $object_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets note_category_id
+     * @return int
+     */
+    public function getNoteCategoryId()
+    {
+        return $this->container['note_category_id'];
+    }
+
+    /**
+     * Sets note_category_id
+     * @param int $note_category_id Note category id
+     * @return $this
+     */
+    public function setNoteCategoryId($note_category_id)
+    {
+        $this->container['note_category_id'] = $note_category_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets note_category_name
      * @return string
      */
-    public function getType()
+    public function getNoteCategoryName()
     {
-        return $this->container['type'];
+        return $this->container['note_category_name'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets note_category_name
+     * @param string $note_category_name Note category name
      * @return $this
      */
-    public function setType($type)
+    public function setNoteCategoryName($note_category_name)
     {
-        $this->container['type'] = $type;
+        $this->container['note_category_name'] = $note_category_name;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets title
      * @return string
      */
-    public function getMessage()
+    public function getTitle()
     {
-        return $this->container['message'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets message
-     * @param string $message
+     * Sets title
+     * @param string $title Note title
      * @return $this
      */
-    public function setMessage($message)
+    public function setTitle($title)
     {
-        $this->container['message'] = $message;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets additional_data
-     * @return object
+     * Gets visible_for_driver
+     * @return bool
      */
-    public function getAdditionalData()
+    public function getVisibleForDriver()
     {
-        return $this->container['additional_data'];
+        return $this->container['visible_for_driver'];
     }
 
     /**
-     * Sets additional_data
-     * @param object $additional_data
+     * Sets visible_for_driver
+     * @param bool $visible_for_driver Is this visible for the driver
      * @return $this
      */
-    public function setAdditionalData($additional_data)
+    public function setVisibleForDriver($visible_for_driver)
     {
-        $this->container['additional_data'] = $additional_data;
+        $this->container['visible_for_driver'] = $visible_for_driver;
+
+        return $this;
+    }
+
+    /**
+     * Gets content
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     * @param string $content Note content
+     * @return $this
+     */
+    public function setContent($content)
+    {
+        $this->container['content'] = $content;
 
         return $this;
     }

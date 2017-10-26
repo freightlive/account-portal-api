@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **iso_country** | **string** |  | [optional] 
 **latitude** | **float** | Latitude | [optional] 
 **longitude** | **float** | Longitude | [optional] 
+**contact_person** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

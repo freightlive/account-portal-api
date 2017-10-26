@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiResponse
+ * LinkModel
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace BumbalAccountPortal\Model;
 use \ArrayAccess;
 
 /**
- * ApiResponse Class Doc Comment
+ * LinkModel Class Doc Comment
  *
  * @category    Class
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ApiResponse implements ArrayAccess
+class LinkModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,17 +47,20 @@ class ApiResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ApiResponse';
+    protected static $swaggerModelName = 'LinkModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'type' => 'string',
-        'message' => 'string',
-        'additional_data' => 'object'
+        'id' => 'int',
+        'link_id' => 'string',
+        'object_type' => 'int',
+        'object_id' => 'int',
+        'provider_id' => 'int',
+        'provider_reference' => 'string',
+        'provider_name' => 'string'
     ];
 
     /**
@@ -65,10 +68,13 @@ class ApiResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'type' => null,
-        'message' => null,
-        'additional_data' => null
+        'id' => 'int64',
+        'link_id' => 'int64',
+        'object_type' => 'int64',
+        'object_id' => 'int64',
+        'provider_id' => 'int64',
+        'provider_reference' => 'int64',
+        'provider_name' => 'int64'
     ];
 
     public static function swaggerTypes()
@@ -86,10 +92,13 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'type' => 'type',
-        'message' => 'message',
-        'additional_data' => 'additional_data'
+        'id' => 'id',
+        'link_id' => 'link_id',
+        'object_type' => 'object_type',
+        'object_id' => 'object_id',
+        'provider_id' => 'provider_id',
+        'provider_reference' => 'provider_reference',
+        'provider_name' => 'provider_name'
     ];
 
 
@@ -98,10 +107,13 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'type' => 'setType',
-        'message' => 'setMessage',
-        'additional_data' => 'setAdditionalData'
+        'id' => 'setId',
+        'link_id' => 'setLinkId',
+        'object_type' => 'setObjectType',
+        'object_id' => 'setObjectId',
+        'provider_id' => 'setProviderId',
+        'provider_reference' => 'setProviderReference',
+        'provider_name' => 'setProviderName'
     ];
 
 
@@ -110,10 +122,13 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'type' => 'getType',
-        'message' => 'getMessage',
-        'additional_data' => 'getAdditionalData'
+        'id' => 'getId',
+        'link_id' => 'getLinkId',
+        'object_type' => 'getObjectType',
+        'object_id' => 'getObjectId',
+        'provider_id' => 'getProviderId',
+        'provider_reference' => 'getProviderReference',
+        'provider_name' => 'getProviderName'
     ];
 
     public static function attributeMap()
@@ -147,10 +162,13 @@ class ApiResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['link_id'] = isset($data['link_id']) ? $data['link_id'] : null;
+        $this->container['object_type'] = isset($data['object_type']) ? $data['object_type'] : null;
+        $this->container['object_id'] = isset($data['object_id']) ? $data['object_id'] : null;
+        $this->container['provider_id'] = isset($data['provider_id']) ? $data['provider_id'] : null;
+        $this->container['provider_reference'] = isset($data['provider_reference']) ? $data['provider_reference'] : null;
+        $this->container['provider_name'] = isset($data['provider_name']) ? $data['provider_name'] : null;
     }
 
     /**
@@ -162,6 +180,9 @@ class ApiResponse implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['id'] === null) {
+            $invalid_properties[] = "'id' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -174,90 +195,156 @@ class ApiResponse implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['id'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets code
+     * Gets id
      * @return int
      */
-    public function getCode()
+    public function getId()
     {
-        return $this->container['code'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets code
-     * @param int $code
+     * Sets id
+     * @param int $id Unique ID
      * @return $this
      */
-    public function setCode($code)
+    public function setId($id)
     {
-        $this->container['code'] = $code;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets link_id
      * @return string
      */
-    public function getType()
+    public function getLinkId()
     {
-        return $this->container['type'];
+        return $this->container['link_id'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets link_id
+     * @param string $link_id The external Link ID
      * @return $this
      */
-    public function setType($type)
+    public function setLinkId($link_id)
     {
-        $this->container['type'] = $type;
+        $this->container['link_id'] = $link_id;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets object_type
+     * @return int
+     */
+    public function getObjectType()
+    {
+        return $this->container['object_type'];
+    }
+
+    /**
+     * Sets object_type
+     * @param int $object_type The object type id which this link is connected to
+     * @return $this
+     */
+    public function setObjectType($object_type)
+    {
+        $this->container['object_type'] = $object_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_id
+     * @return int
+     */
+    public function getObjectId()
+    {
+        return $this->container['object_id'];
+    }
+
+    /**
+     * Sets object_id
+     * @param int $object_id The object ID which this link is connected to
+     * @return $this
+     */
+    public function setObjectId($object_id)
+    {
+        $this->container['object_id'] = $object_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets provider_id
+     * @return int
+     */
+    public function getProviderId()
+    {
+        return $this->container['provider_id'];
+    }
+
+    /**
+     * Sets provider_id
+     * @param int $provider_id The Provider ID which this link is connected to
+     * @return $this
+     */
+    public function setProviderId($provider_id)
+    {
+        $this->container['provider_id'] = $provider_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets provider_reference
      * @return string
      */
-    public function getMessage()
+    public function getProviderReference()
     {
-        return $this->container['message'];
+        return $this->container['provider_reference'];
     }
 
     /**
-     * Sets message
-     * @param string $message
+     * Sets provider_reference
+     * @param string $provider_reference A Provider reference which this link is connected to
      * @return $this
      */
-    public function setMessage($message)
+    public function setProviderReference($provider_reference)
     {
-        $this->container['message'] = $message;
+        $this->container['provider_reference'] = $provider_reference;
 
         return $this;
     }
 
     /**
-     * Gets additional_data
-     * @return object
+     * Gets provider_name
+     * @return string
      */
-    public function getAdditionalData()
+    public function getProviderName()
     {
-        return $this->container['additional_data'];
+        return $this->container['provider_name'];
     }
 
     /**
-     * Sets additional_data
-     * @param object $additional_data
+     * Sets provider_name
+     * @param string $provider_name The name of the external Provider
      * @return $this
      */
-    public function setAdditionalData($additional_data)
+    public function setProviderName($provider_name)
     {
-        $this->container['additional_data'] = $additional_data;
+        $this->container['provider_name'] = $provider_name;
 
         return $this;
     }

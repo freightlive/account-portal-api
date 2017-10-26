@@ -144,6 +144,11 @@ class ActivityApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('ApiKey');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['ApiKey'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -176,7 +181,7 @@ class ActivityApi
      *
      * @param int $activity_id ID of activity to return (required)
      * @throws \BumbalAccountPortal\ApiException on non-2xx response
-     * @return \BumbalAccountPortal\Model\PortalParameterModel[]
+     * @return \BumbalAccountPortal\Model\ActivityModel
      */
     public function retrieveActivity($activity_id)
     {
@@ -191,7 +196,7 @@ class ActivityApi
      *
      * @param int $activity_id ID of activity to return (required)
      * @throws \BumbalAccountPortal\ApiException on non-2xx response
-     * @return array of \BumbalAccountPortal\Model\PortalParameterModel[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BumbalAccountPortal\Model\ActivityModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveActivityWithHttpInfo($activity_id)
     {
@@ -226,6 +231,11 @@ class ActivityApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('ApiKey');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['ApiKey'] = $apiKey;
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -234,15 +244,15 @@ class ActivityApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\BumbalAccountPortal\Model\PortalParameterModel[]',
+                '\BumbalAccountPortal\Model\ActivityModel',
                 '/activity/{activityId}'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\BumbalAccountPortal\Model\PortalParameterModel[]', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\BumbalAccountPortal\Model\ActivityModel', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BumbalAccountPortal\Model\PortalParameterModel[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BumbalAccountPortal\Model\ActivityModel', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }
@@ -256,13 +266,13 @@ class ActivityApi
      *
      * Set an activity
      *
-     * @param string $token Token of the Requested Activity (required)
+     * @param \BumbalAccountPortal\Model\ActivityModel $body Activity object (optional)
      * @throws \BumbalAccountPortal\ApiException on non-2xx response
-     * @return \BumbalAccountPortal\Model\PortalParameterModel[]
+     * @return \BumbalAccountPortal\Model\ApiResponse
      */
-    public function setActivity($token)
+    public function setActivity($body = null)
     {
-        list($response) = $this->setActivityWithHttpInfo($token);
+        list($response) = $this->setActivityWithHttpInfo($body);
         return $response;
     }
 
@@ -271,16 +281,12 @@ class ActivityApi
      *
      * Set an activity
      *
-     * @param string $token Token of the Requested Activity (required)
+     * @param \BumbalAccountPortal\Model\ActivityModel $body Activity object (optional)
      * @throws \BumbalAccountPortal\ApiException on non-2xx response
-     * @return array of \BumbalAccountPortal\Model\PortalParameterModel[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \BumbalAccountPortal\Model\ApiResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setActivityWithHttpInfo($token)
+    public function setActivityWithHttpInfo($body = null)
     {
-        // verify the required parameter 'token' is set
-        if ($token === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $token when calling setActivity');
-        }
         // parse inputs
         $resourcePath = "/activity/set";
         $httpBody = '';
@@ -293,9 +299,10 @@ class ActivityApi
         }
         $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['application/json', 'application/xml']);
 
-        // query params
-        if ($token !== null) {
-            $queryParams['token'] = $this->apiClient->getSerializer()->toQueryValue($token);
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         // for model (json/xml)
@@ -303,6 +310,11 @@ class ActivityApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->apiClient->getApiKeyWithPrefix('ApiKey');
+        if (strlen($apiKey) !== 0) {
+            $headerParams['ApiKey'] = $apiKey;
         }
         // make the API Call
         try {
@@ -312,15 +324,15 @@ class ActivityApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\BumbalAccountPortal\Model\PortalParameterModel[]',
+                '\BumbalAccountPortal\Model\ApiResponse',
                 '/activity/set'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\BumbalAccountPortal\Model\PortalParameterModel[]', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\BumbalAccountPortal\Model\ApiResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BumbalAccountPortal\Model\PortalParameterModel[]', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\BumbalAccountPortal\Model\ApiResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

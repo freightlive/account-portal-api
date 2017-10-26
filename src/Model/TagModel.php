@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiResponse
+ * TagModel
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace BumbalAccountPortal\Model;
 use \ArrayAccess;
 
 /**
- * ApiResponse Class Doc Comment
+ * TagModel Class Doc Comment
  *
  * @category    Class
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ApiResponse implements ArrayAccess
+class TagModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,17 +47,17 @@ class ApiResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ApiResponse';
+    protected static $swaggerModelName = 'TagModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'type' => 'string',
-        'message' => 'string',
-        'additional_data' => 'object'
+        'id' => 'int',
+        'object_type' => 'int',
+        'tag_type_id' => 'int',
+        'tag_type_name' => 'string'
     ];
 
     /**
@@ -65,10 +65,10 @@ class ApiResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'type' => null,
-        'message' => null,
-        'additional_data' => null
+        'id' => 'int64',
+        'object_type' => 'int64',
+        'tag_type_id' => 'int64',
+        'tag_type_name' => null
     ];
 
     public static function swaggerTypes()
@@ -86,10 +86,10 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'type' => 'type',
-        'message' => 'message',
-        'additional_data' => 'additional_data'
+        'id' => 'id',
+        'object_type' => 'object_type',
+        'tag_type_id' => 'tag_type_id',
+        'tag_type_name' => 'tag_type_name'
     ];
 
 
@@ -98,10 +98,10 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'type' => 'setType',
-        'message' => 'setMessage',
-        'additional_data' => 'setAdditionalData'
+        'id' => 'setId',
+        'object_type' => 'setObjectType',
+        'tag_type_id' => 'setTagTypeId',
+        'tag_type_name' => 'setTagTypeName'
     ];
 
 
@@ -110,10 +110,10 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'type' => 'getType',
-        'message' => 'getMessage',
-        'additional_data' => 'getAdditionalData'
+        'id' => 'getId',
+        'object_type' => 'getObjectType',
+        'tag_type_id' => 'getTagTypeId',
+        'tag_type_name' => 'getTagTypeName'
     ];
 
     public static function attributeMap()
@@ -147,10 +147,10 @@ class ApiResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['object_type'] = isset($data['object_type']) ? $data['object_type'] : null;
+        $this->container['tag_type_id'] = isset($data['tag_type_id']) ? $data['tag_type_id'] : null;
+        $this->container['tag_type_name'] = isset($data['tag_type_name']) ? $data['tag_type_name'] : null;
     }
 
     /**
@@ -162,6 +162,9 @@ class ApiResponse implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['id'] === null) {
+            $invalid_properties[] = "'id' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -174,90 +177,93 @@ class ApiResponse implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['id'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets code
+     * Gets id
      * @return int
      */
-    public function getCode()
+    public function getId()
     {
-        return $this->container['code'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets code
-     * @param int $code
+     * Sets id
+     * @param int $id Unique ID
      * @return $this
      */
-    public function setCode($code)
+    public function setId($id)
     {
-        $this->container['code'] = $code;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets object_type
+     * @return int
+     */
+    public function getObjectType()
+    {
+        return $this->container['object_type'];
+    }
+
+    /**
+     * Sets object_type
+     * @param int $object_type Object type ID
+     * @return $this
+     */
+    public function setObjectType($object_type)
+    {
+        $this->container['object_type'] = $object_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_type_id
+     * @return int
+     */
+    public function getTagTypeId()
+    {
+        return $this->container['tag_type_id'];
+    }
+
+    /**
+     * Sets tag_type_id
+     * @param int $tag_type_id Tag Type ID
+     * @return $this
+     */
+    public function setTagTypeId($tag_type_id)
+    {
+        $this->container['tag_type_id'] = $tag_type_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_type_name
      * @return string
      */
-    public function getType()
+    public function getTagTypeName()
     {
-        return $this->container['type'];
+        return $this->container['tag_type_name'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets tag_type_name
+     * @param string $tag_type_name Tag Type Name
      * @return $this
      */
-    public function setType($type)
+    public function setTagTypeName($tag_type_name)
     {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     * @param string $message
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets additional_data
-     * @return object
-     */
-    public function getAdditionalData()
-    {
-        return $this->container['additional_data'];
-    }
-
-    /**
-     * Sets additional_data
-     * @param object $additional_data
-     * @return $this
-     */
-    public function setAdditionalData($additional_data)
-    {
-        $this->container['additional_data'] = $additional_data;
+        $this->container['tag_type_name'] = $tag_type_name;
 
         return $this;
     }

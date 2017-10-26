@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiResponseTest
+ * CommunicationModelTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace BumbalAccountPortal;
 
 /**
- * ApiResponseTest Class Doc Comment
+ * CommunicationModelTest Class Doc Comment
  *
  * @category    Class */
-// * @description ApiResponse
+// * @description CommunicationModel
 /**
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ApiResponseTest extends \PHPUnit_Framework_TestCase
+class CommunicationModelTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,37 +71,51 @@ class ApiResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "ApiResponse"
+     * Test "CommunicationModel"
      */
-    public function testApiResponse()
+    public function testCommunicationModel()
     {
     }
 
     /**
-     * Test attribute "code"
+     * Test attribute "saywhen"
      */
-    public function testPropertyCode()
+    public function testPropertySaywhen()
     {
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "bumbal"
      */
-    public function testPropertyType()
+    public function testPropertyBumbal()
     {
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "send_invite"
      */
-    public function testPropertyMessage()
+    public function testPropertySendInvite()
     {
     }
 
     /**
-     * Test attribute "additional_data"
+     * Test attribute "send_eta"
      */
-    public function testPropertyAdditionalData()
+    public function testPropertySendEta()
+    {
+    }
+
+    /**
+     * Test attribute "email"
+     */
+    public function testPropertyEmail()
+    {
+    }
+
+    /**
+     * Test attribute "phone_nr"
+     */
+    public function testPropertyPhoneNr()
     {
     }
 }

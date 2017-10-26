@@ -1,12 +1,12 @@
-# ApiResponse
+# TagModel
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **int** |  | [optional] 
-**type** | **string** |  | [optional] 
-**message** | **string** |  | [optional] 
-**additional_data** | **object** |  | [optional] 
+**id** | **int** | Unique ID | 
+**object_type** | **int** | Object type ID | [optional] 
+**tag_type_id** | **int** | Tag Type ID | [optional] 
+**tag_type_name** | **string** | Tag Type Name | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

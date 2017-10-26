@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiResponseTest
+ * TagModelTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace BumbalAccountPortal;
 
 /**
- * ApiResponseTest Class Doc Comment
+ * TagModelTest Class Doc Comment
  *
  * @category    Class */
-// * @description ApiResponse
+// * @description TagModel
 /**
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ApiResponseTest extends \PHPUnit_Framework_TestCase
+class TagModelTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,37 +71,37 @@ class ApiResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "ApiResponse"
+     * Test "TagModel"
      */
-    public function testApiResponse()
+    public function testTagModel()
     {
     }
 
     /**
-     * Test attribute "code"
+     * Test attribute "id"
      */
-    public function testPropertyCode()
+    public function testPropertyId()
     {
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "object_type"
      */
-    public function testPropertyType()
+    public function testPropertyObjectType()
     {
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "tag_type_id"
      */
-    public function testPropertyMessage()
+    public function testPropertyTagTypeId()
     {
     }
 
     /**
-     * Test attribute "additional_data"
+     * Test attribute "tag_type_name"
      */
-    public function testPropertyAdditionalData()
+    public function testPropertyTagTypeName()
     {
     }
 }

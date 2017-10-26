@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiResponse
+ * AuthenticateResult
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace BumbalAccountPortal\Model;
 use \ArrayAccess;
 
 /**
- * ApiResponse Class Doc Comment
+ * AuthenticateResult Class Doc Comment
  *
  * @category    Class
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ApiResponse implements ArrayAccess
+class AuthenticateResult implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class ApiResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ApiResponse';
+    protected static $swaggerModelName = 'AuthenticateResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,9 +55,8 @@ class ApiResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'code' => 'int',
-        'type' => 'string',
-        'message' => 'string',
-        'additional_data' => 'object'
+        'auth_token' => 'string',
+        'message' => 'string'
     ];
 
     /**
@@ -66,9 +65,8 @@ class ApiResponse implements ArrayAccess
       */
     protected static $swaggerFormats = [
         'code' => 'int32',
-        'type' => null,
-        'message' => null,
-        'additional_data' => null
+        'auth_token' => null,
+        'message' => null
     ];
 
     public static function swaggerTypes()
@@ -87,9 +85,8 @@ class ApiResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'code' => 'code',
-        'type' => 'type',
-        'message' => 'message',
-        'additional_data' => 'additional_data'
+        'auth_token' => 'authToken',
+        'message' => 'message'
     ];
 
 
@@ -99,9 +96,8 @@ class ApiResponse implements ArrayAccess
      */
     protected static $setters = [
         'code' => 'setCode',
-        'type' => 'setType',
-        'message' => 'setMessage',
-        'additional_data' => 'setAdditionalData'
+        'auth_token' => 'setAuthToken',
+        'message' => 'setMessage'
     ];
 
 
@@ -111,9 +107,8 @@ class ApiResponse implements ArrayAccess
      */
     protected static $getters = [
         'code' => 'getCode',
-        'type' => 'getType',
-        'message' => 'getMessage',
-        'additional_data' => 'getAdditionalData'
+        'auth_token' => 'getAuthToken',
+        'message' => 'getMessage'
     ];
 
     public static function attributeMap()
@@ -148,9 +143,8 @@ class ApiResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['auth_token'] = isset($data['auth_token']) ? $data['auth_token'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
     }
 
     /**
@@ -200,22 +194,22 @@ class ApiResponse implements ArrayAccess
     }
 
     /**
-     * Gets type
+     * Gets auth_token
      * @return string
      */
-    public function getType()
+    public function getAuthToken()
     {
-        return $this->container['type'];
+        return $this->container['auth_token'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets auth_token
+     * @param string $auth_token
      * @return $this
      */
-    public function setType($type)
+    public function setAuthToken($auth_token)
     {
-        $this->container['type'] = $type;
+        $this->container['auth_token'] = $auth_token;
 
         return $this;
     }
@@ -237,27 +231,6 @@ class ApiResponse implements ArrayAccess
     public function setMessage($message)
     {
         $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets additional_data
-     * @return object
-     */
-    public function getAdditionalData()
-    {
-        return $this->container['additional_data'];
-    }
-
-    /**
-     * Sets additional_data
-     * @param object $additional_data
-     * @return $this
-     */
-    public function setAdditionalData($additional_data)
-    {
-        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }

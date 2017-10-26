@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiResponseTest
+ * AuthenticateModelTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace BumbalAccountPortal;
 
 /**
- * ApiResponseTest Class Doc Comment
+ * AuthenticateModelTest Class Doc Comment
  *
  * @category    Class */
-// * @description ApiResponse
+// * @description AuthenticateModel
 /**
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ApiResponseTest extends \PHPUnit_Framework_TestCase
+class AuthenticateModelTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,37 +71,30 @@ class ApiResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "ApiResponse"
+     * Test "AuthenticateModel"
      */
-    public function testApiResponse()
+    public function testAuthenticateModel()
     {
     }
 
     /**
-     * Test attribute "code"
+     * Test attribute "instance"
      */
-    public function testPropertyCode()
+    public function testPropertyInstance()
     {
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "email"
      */
-    public function testPropertyType()
+    public function testPropertyEmail()
     {
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "password"
      */
-    public function testPropertyMessage()
-    {
-    }
-
-    /**
-     * Test attribute "additional_data"
-     */
-    public function testPropertyAdditionalData()
+    public function testPropertyPassword()
     {
     }
 }

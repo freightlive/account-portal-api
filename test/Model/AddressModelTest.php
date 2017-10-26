@@ -160,4 +160,11 @@ class AddressModelTest extends \PHPUnit_Framework_TestCase
     public function testPropertyLongitude()
     {
     }
+
+    /**
+     * Test attribute "contact_person"
+     */
+    public function testPropertyContactPerson()
+    {
+    }
 }

@@ -54,18 +54,20 @@ class ActivityModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'id' => 'int',
         'nr' => 'string',
+        'activity_type_id' => 'int',
         'activity_type_name' => 'string',
         'status_name' => 'string',
         'reference' => 'string',
         'duration' => 'int',
         'date_time_from' => '\DateTime',
         'date_time_to' => '\DateTime',
-        'driver_full_name' => 'string',
-        'route_status' => 'string',
-        'route_latest_position' => '\BumbalAccountPortal\Model\GeoPositionModel',
         'address' => '\BumbalAccountPortal\Model\AddressModel',
-        'package_lines' => '\BumbalAccountPortal\Model\PackageLineModel[]'
+        'tags' => '\BumbalAccountPortal\Model\TagModel',
+        'communication' => '\BumbalAccountPortal\Model\CommunicationModel',
+        'package_lines' => '\BumbalAccountPortal\Model\PackageLineModel[]',
+        'notes' => '\BumbalAccountPortal\Model\NoteModel[]'
     ];
 
     /**
@@ -73,18 +75,20 @@ class ActivityModel implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'id' => null,
         'nr' => null,
+        'activity_type_id' => null,
         'activity_type_name' => null,
         'status_name' => null,
         'reference' => null,
         'duration' => null,
         'date_time_from' => 'date-time',
         'date_time_to' => 'date-time',
-        'driver_full_name' => null,
-        'route_status' => null,
-        'route_latest_position' => null,
         'address' => null,
-        'package_lines' => null
+        'tags' => null,
+        'communication' => null,
+        'package_lines' => null,
+        'notes' => null
     ];
 
     public static function swaggerTypes()
@@ -102,18 +106,20 @@ class ActivityModel implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'nr' => 'nr',
+        'activity_type_id' => 'activity_type_id',
         'activity_type_name' => 'activity_type_name',
         'status_name' => 'status_name',
         'reference' => 'reference',
         'duration' => 'duration',
         'date_time_from' => 'date_time_from',
         'date_time_to' => 'date_time_to',
-        'driver_full_name' => 'driver_full_name',
-        'route_status' => 'route_status',
-        'route_latest_position' => 'route_latest_position',
         'address' => 'address',
-        'package_lines' => 'package_lines'
+        'tags' => 'tags',
+        'communication' => 'communication',
+        'package_lines' => 'package_lines',
+        'notes' => 'notes'
     ];
 
 
@@ -122,18 +128,20 @@ class ActivityModel implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'nr' => 'setNr',
+        'activity_type_id' => 'setActivityTypeId',
         'activity_type_name' => 'setActivityTypeName',
         'status_name' => 'setStatusName',
         'reference' => 'setReference',
         'duration' => 'setDuration',
         'date_time_from' => 'setDateTimeFrom',
         'date_time_to' => 'setDateTimeTo',
-        'driver_full_name' => 'setDriverFullName',
-        'route_status' => 'setRouteStatus',
-        'route_latest_position' => 'setRouteLatestPosition',
         'address' => 'setAddress',
-        'package_lines' => 'setPackageLines'
+        'tags' => 'setTags',
+        'communication' => 'setCommunication',
+        'package_lines' => 'setPackageLines',
+        'notes' => 'setNotes'
     ];
 
 
@@ -142,18 +150,20 @@ class ActivityModel implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'nr' => 'getNr',
+        'activity_type_id' => 'getActivityTypeId',
         'activity_type_name' => 'getActivityTypeName',
         'status_name' => 'getStatusName',
         'reference' => 'getReference',
         'duration' => 'getDuration',
         'date_time_from' => 'getDateTimeFrom',
         'date_time_to' => 'getDateTimeTo',
-        'driver_full_name' => 'getDriverFullName',
-        'route_status' => 'getRouteStatus',
-        'route_latest_position' => 'getRouteLatestPosition',
         'address' => 'getAddress',
-        'package_lines' => 'getPackageLines'
+        'tags' => 'getTags',
+        'communication' => 'getCommunication',
+        'package_lines' => 'getPackageLines',
+        'notes' => 'getNotes'
     ];
 
     public static function attributeMap()
@@ -187,18 +197,20 @@ class ActivityModel implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['nr'] = isset($data['nr']) ? $data['nr'] : null;
+        $this->container['activity_type_id'] = isset($data['activity_type_id']) ? $data['activity_type_id'] : null;
         $this->container['activity_type_name'] = isset($data['activity_type_name']) ? $data['activity_type_name'] : null;
         $this->container['status_name'] = isset($data['status_name']) ? $data['status_name'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
         $this->container['date_time_from'] = isset($data['date_time_from']) ? $data['date_time_from'] : null;
         $this->container['date_time_to'] = isset($data['date_time_to']) ? $data['date_time_to'] : null;
-        $this->container['driver_full_name'] = isset($data['driver_full_name']) ? $data['driver_full_name'] : null;
-        $this->container['route_status'] = isset($data['route_status']) ? $data['route_status'] : null;
-        $this->container['route_latest_position'] = isset($data['route_latest_position']) ? $data['route_latest_position'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['communication'] = isset($data['communication']) ? $data['communication'] : null;
         $this->container['package_lines'] = isset($data['package_lines']) ? $data['package_lines'] : null;
+        $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
     }
 
     /**
@@ -227,6 +239,27 @@ class ActivityModel implements ArrayAccess
 
 
     /**
+     * Gets id
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     * @param int $id ID of this Activity
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets nr
      * @return string
      */
@@ -243,6 +276,27 @@ class ActivityModel implements ArrayAccess
     public function setNr($nr)
     {
         $this->container['nr'] = $nr;
+
+        return $this;
+    }
+
+    /**
+     * Gets activity_type_id
+     * @return int
+     */
+    public function getActivityTypeId()
+    {
+        return $this->container['activity_type_id'];
+    }
+
+    /**
+     * Sets activity_type_id
+     * @param int $activity_type_id Type ID of this Activity
+     * @return $this
+     */
+    public function setActivityTypeId($activity_type_id)
+    {
+        $this->container['activity_type_id'] = $activity_type_id;
 
         return $this;
     }
@@ -374,69 +428,6 @@ class ActivityModel implements ArrayAccess
     }
 
     /**
-     * Gets driver_full_name
-     * @return string
-     */
-    public function getDriverFullName()
-    {
-        return $this->container['driver_full_name'];
-    }
-
-    /**
-     * Sets driver_full_name
-     * @param string $driver_full_name Name of the driver assigned to this route
-     * @return $this
-     */
-    public function setDriverFullName($driver_full_name)
-    {
-        $this->container['driver_full_name'] = $driver_full_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets route_status
-     * @return string
-     */
-    public function getRouteStatus()
-    {
-        return $this->container['route_status'];
-    }
-
-    /**
-     * Sets route_status
-     * @param string $route_status Status of the Route this Activity is planned on
-     * @return $this
-     */
-    public function setRouteStatus($route_status)
-    {
-        $this->container['route_status'] = $route_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets route_latest_position
-     * @return \BumbalAccountPortal\Model\GeoPositionModel
-     */
-    public function getRouteLatestPosition()
-    {
-        return $this->container['route_latest_position'];
-    }
-
-    /**
-     * Sets route_latest_position
-     * @param \BumbalAccountPortal\Model\GeoPositionModel $route_latest_position
-     * @return $this
-     */
-    public function setRouteLatestPosition($route_latest_position)
-    {
-        $this->container['route_latest_position'] = $route_latest_position;
-
-        return $this;
-    }
-
-    /**
      * Gets address
      * @return \BumbalAccountPortal\Model\AddressModel
      */
@@ -458,6 +449,48 @@ class ActivityModel implements ArrayAccess
     }
 
     /**
+     * Gets tags
+     * @return \BumbalAccountPortal\Model\TagModel
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     * @param \BumbalAccountPortal\Model\TagModel $tags
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets communication
+     * @return \BumbalAccountPortal\Model\CommunicationModel
+     */
+    public function getCommunication()
+    {
+        return $this->container['communication'];
+    }
+
+    /**
+     * Sets communication
+     * @param \BumbalAccountPortal\Model\CommunicationModel $communication
+     * @return $this
+     */
+    public function setCommunication($communication)
+    {
+        $this->container['communication'] = $communication;
+
+        return $this;
+    }
+
+    /**
      * Gets package_lines
      * @return \BumbalAccountPortal\Model\PackageLineModel[]
      */
@@ -474,6 +507,27 @@ class ActivityModel implements ArrayAccess
     public function setPackageLines($package_lines)
     {
         $this->container['package_lines'] = $package_lines;
+
+        return $this;
+    }
+
+    /**
+     * Gets notes
+     * @return \BumbalAccountPortal\Model\NoteModel[]
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     * @param \BumbalAccountPortal\Model\NoteModel[] $notes
+     * @return $this
+     */
+    public function setNotes($notes)
+    {
+        $this->container['notes'] = $notes;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ActivityModelTest
+ * TimeSlotModelTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace BumbalAccountPortal;
 
 /**
- * ActivityModelTest Class Doc Comment
+ * TimeSlotModelTest Class Doc Comment
  *
  * @category    Class */
-// * @description ActivityModel
+// * @description TimeSlotModel
 /**
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ActivityModelTest extends \PHPUnit_Framework_TestCase
+class TimeSlotModelTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class ActivityModelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "ActivityModel"
+     * Test "TimeSlotModel"
      */
-    public function testActivityModel()
+    public function testTimeSlotModel()
     {
     }
 
@@ -85,44 +85,37 @@ class ActivityModelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "nr"
+     * Test attribute "time_slot_type"
      */
-    public function testPropertyNr()
+    public function testPropertyTimeSlotType()
     {
     }
 
     /**
-     * Test attribute "activity_type_id"
+     * Test attribute "time_slot_type_id"
      */
-    public function testPropertyActivityTypeId()
+    public function testPropertyTimeSlotTypeId()
     {
     }
 
     /**
-     * Test attribute "activity_type_name"
+     * Test attribute "activity_id"
      */
-    public function testPropertyActivityTypeName()
+    public function testPropertyActivityId()
     {
     }
 
     /**
-     * Test attribute "status_name"
+     * Test attribute "date_from"
      */
-    public function testPropertyStatusName()
+    public function testPropertyDateFrom()
     {
     }
 
     /**
-     * Test attribute "reference"
+     * Test attribute "time_from"
      */
-    public function testPropertyReference()
-    {
-    }
-
-    /**
-     * Test attribute "duration"
-     */
-    public function testPropertyDuration()
+    public function testPropertyTimeFrom()
     {
     }
 
@@ -134,6 +127,20 @@ class ActivityModelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "date_to"
+     */
+    public function testPropertyDateTo()
+    {
+    }
+
+    /**
+     * Test attribute "time_to"
+     */
+    public function testPropertyTimeTo()
+    {
+    }
+
+    /**
      * Test attribute "date_time_to"
      */
     public function testPropertyDateTimeTo()
@@ -141,37 +148,9 @@ class ActivityModelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "address"
+     * Test attribute "planned"
      */
-    public function testPropertyAddress()
-    {
-    }
-
-    /**
-     * Test attribute "tags"
-     */
-    public function testPropertyTags()
-    {
-    }
-
-    /**
-     * Test attribute "communication"
-     */
-    public function testPropertyCommunication()
-    {
-    }
-
-    /**
-     * Test attribute "package_lines"
-     */
-    public function testPropertyPackageLines()
-    {
-    }
-
-    /**
-     * Test attribute "notes"
-     */
-    public function testPropertyNotes()
+    public function testPropertyPlanned()
     {
     }
 }

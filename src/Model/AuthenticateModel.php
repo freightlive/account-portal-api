@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiResponse
+ * AuthenticateModel
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace BumbalAccountPortal\Model;
 use \ArrayAccess;
 
 /**
- * ApiResponse Class Doc Comment
+ * AuthenticateModel Class Doc Comment
  *
  * @category    Class
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ApiResponse implements ArrayAccess
+class AuthenticateModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,17 +47,16 @@ class ApiResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ApiResponse';
+    protected static $swaggerModelName = 'AuthenticateModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'type' => 'string',
-        'message' => 'string',
-        'additional_data' => 'object'
+        'instance' => 'string',
+        'email' => 'string',
+        'password' => 'string'
     ];
 
     /**
@@ -65,10 +64,9 @@ class ApiResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'type' => null,
-        'message' => null,
-        'additional_data' => null
+        'instance' => null,
+        'email' => null,
+        'password' => null
     ];
 
     public static function swaggerTypes()
@@ -86,10 +84,9 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'type' => 'type',
-        'message' => 'message',
-        'additional_data' => 'additional_data'
+        'instance' => 'instance',
+        'email' => 'email',
+        'password' => 'password'
     ];
 
 
@@ -98,10 +95,9 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'type' => 'setType',
-        'message' => 'setMessage',
-        'additional_data' => 'setAdditionalData'
+        'instance' => 'setInstance',
+        'email' => 'setEmail',
+        'password' => 'setPassword'
     ];
 
 
@@ -110,10 +106,9 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'type' => 'getType',
-        'message' => 'getMessage',
-        'additional_data' => 'getAdditionalData'
+        'instance' => 'getInstance',
+        'email' => 'getEmail',
+        'password' => 'getPassword'
     ];
 
     public static function attributeMap()
@@ -147,10 +142,9 @@ class ApiResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
+        $this->container['instance'] = isset($data['instance']) ? $data['instance'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
     }
 
     /**
@@ -179,85 +173,64 @@ class ApiResponse implements ArrayAccess
 
 
     /**
-     * Gets code
-     * @return int
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     * @param int $code
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets instance
      * @return string
      */
-    public function getType()
+    public function getInstance()
     {
-        return $this->container['type'];
+        return $this->container['instance'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets instance
+     * @param string $instance
      * @return $this
      */
-    public function setType($type)
+    public function setInstance($instance)
     {
-        $this->container['type'] = $type;
+        $this->container['instance'] = $instance;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets email
      * @return string
      */
-    public function getMessage()
+    public function getEmail()
     {
-        return $this->container['message'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets message
-     * @param string $message
+     * Sets email
+     * @param string $email
      * @return $this
      */
-    public function setMessage($message)
+    public function setEmail($email)
     {
-        $this->container['message'] = $message;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets additional_data
-     * @return object
+     * Gets password
+     * @return string
      */
-    public function getAdditionalData()
+    public function getPassword()
     {
-        return $this->container['additional_data'];
+        return $this->container['password'];
     }
 
     /**
-     * Sets additional_data
-     * @param object $additional_data
+     * Sets password
+     * @param string $password
      * @return $this
      */
-    public function setAdditionalData($additional_data)
+    public function setPassword($password)
     {
-        $this->container['additional_data'] = $additional_data;
+        $this->container['password'] = $password;
 
         return $this;
     }

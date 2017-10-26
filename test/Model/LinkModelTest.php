@@ -1,6 +1,6 @@
 <?php
 /**
- * ActivityModelTest
+ * LinkModelTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace BumbalAccountPortal;
 
 /**
- * ActivityModelTest Class Doc Comment
+ * LinkModelTest Class Doc Comment
  *
  * @category    Class */
-// * @description ActivityModel
+// * @description LinkModel
 /**
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ActivityModelTest extends \PHPUnit_Framework_TestCase
+class LinkModelTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class ActivityModelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "ActivityModel"
+     * Test "LinkModel"
      */
-    public function testActivityModel()
+    public function testLinkModel()
     {
     }
 
@@ -85,93 +85,44 @@ class ActivityModelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "nr"
+     * Test attribute "link_id"
      */
-    public function testPropertyNr()
+    public function testPropertyLinkId()
     {
     }
 
     /**
-     * Test attribute "activity_type_id"
+     * Test attribute "object_type"
      */
-    public function testPropertyActivityTypeId()
+    public function testPropertyObjectType()
     {
     }
 
     /**
-     * Test attribute "activity_type_name"
+     * Test attribute "object_id"
      */
-    public function testPropertyActivityTypeName()
+    public function testPropertyObjectId()
     {
     }
 
     /**
-     * Test attribute "status_name"
+     * Test attribute "provider_id"
      */
-    public function testPropertyStatusName()
+    public function testPropertyProviderId()
     {
     }
 
     /**
-     * Test attribute "reference"
+     * Test attribute "provider_reference"
      */
-    public function testPropertyReference()
+    public function testPropertyProviderReference()
     {
     }
 
     /**
-     * Test attribute "duration"
+     * Test attribute "provider_name"
      */
-    public function testPropertyDuration()
-    {
-    }
-
-    /**
-     * Test attribute "date_time_from"
-     */
-    public function testPropertyDateTimeFrom()
-    {
-    }
-
-    /**
-     * Test attribute "date_time_to"
-     */
-    public function testPropertyDateTimeTo()
-    {
-    }
-
-    /**
-     * Test attribute "address"
-     */
-    public function testPropertyAddress()
-    {
-    }
-
-    /**
-     * Test attribute "tags"
-     */
-    public function testPropertyTags()
-    {
-    }
-
-    /**
-     * Test attribute "communication"
-     */
-    public function testPropertyCommunication()
-    {
-    }
-
-    /**
-     * Test attribute "package_lines"
-     */
-    public function testPropertyPackageLines()
-    {
-    }
-
-    /**
-     * Test attribute "notes"
-     */
-    public function testPropertyNotes()
+    public function testPropertyProviderName()
     {
     }
 }

@@ -56,6 +56,11 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure API key authorization: api_key
+BumbalAccountPortal\Configuration::getDefaultConfiguration()->setApiKey('ApiKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// BumbalAccountPortal\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApiKey', 'Bearer');
+
 $api_instance = new BumbalAccountPortal\Api\ActivityApi();
 $activity_id = 789; // int | ID of the activity to delete
 
@@ -71,13 +76,14 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://accountportal.bumbal.eu/api/v1*
+All URIs are relative to *http://accountportal.bumbal.eu/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ActivityApi* | [**deleteActivity**](docs/Api/ActivityApi.md#deleteactivity) | **DELETE** /activity/{activityId} | Delete an activity
 *ActivityApi* | [**retrieveActivity**](docs/Api/ActivityApi.md#retrieveactivity) | **GET** /activity/{activityId} | Find activity by ID
 *ActivityApi* | [**setActivity**](docs/Api/ActivityApi.md#setactivity) | **POST** /activity/set | Set an activity
+*AuthenticateApi* | [**authenticateSignIn**](docs/Api/AuthenticateApi.md#authenticatesignin) | **POST** /authenticate/sign-in | Sign in and retrieve an AuthToken
 
 
 ## Documentation For Models
@@ -85,14 +91,25 @@ Class | Method | HTTP request | Description
  - [ActivityModel](docs/Model/ActivityModel.md)
  - [AddressModel](docs/Model/AddressModel.md)
  - [ApiResponse](docs/Model/ApiResponse.md)
- - [GeoPositionModel](docs/Model/GeoPositionModel.md)
+ - [AuthenticateModel](docs/Model/AuthenticateModel.md)
+ - [AuthenticateResult](docs/Model/AuthenticateResult.md)
+ - [CommunicationModel](docs/Model/CommunicationModel.md)
+ - [InstructionModel](docs/Model/InstructionModel.md)
+ - [LinkModel](docs/Model/LinkModel.md)
+ - [NoteModel](docs/Model/NoteModel.md)
  - [PackageLineModel](docs/Model/PackageLineModel.md)
- - [PortalParameterModel](docs/Model/PortalParameterModel.md)
+ - [TagModel](docs/Model/TagModel.md)
+ - [TimeSlotModel](docs/Model/TimeSlotModel.md)
 
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+
+## api_key
+
+- **Type**: API key
+- **API key parameter name**: ApiKey
+- **Location**: HTTP header
 
 
 ## Author

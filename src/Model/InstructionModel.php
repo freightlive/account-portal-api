@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiResponse
+ * InstructionModel
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace BumbalAccountPortal\Model;
 use \ArrayAccess;
 
 /**
- * ApiResponse Class Doc Comment
+ * InstructionModel Class Doc Comment
  *
  * @category    Class
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ApiResponse implements ArrayAccess
+class InstructionModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,17 +47,15 @@ class ApiResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ApiResponse';
+    protected static $swaggerModelName = 'InstructionModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'type' => 'string',
-        'message' => 'string',
-        'additional_data' => 'object'
+        'id' => 'int',
+        'content' => 'string'
     ];
 
     /**
@@ -65,10 +63,8 @@ class ApiResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'type' => null,
-        'message' => null,
-        'additional_data' => null
+        'id' => 'int64',
+        'content' => null
     ];
 
     public static function swaggerTypes()
@@ -86,10 +82,8 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'type' => 'type',
-        'message' => 'message',
-        'additional_data' => 'additional_data'
+        'id' => 'id',
+        'content' => 'content'
     ];
 
 
@@ -98,10 +92,8 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'type' => 'setType',
-        'message' => 'setMessage',
-        'additional_data' => 'setAdditionalData'
+        'id' => 'setId',
+        'content' => 'setContent'
     ];
 
 
@@ -110,10 +102,8 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'type' => 'getType',
-        'message' => 'getMessage',
-        'additional_data' => 'getAdditionalData'
+        'id' => 'getId',
+        'content' => 'getContent'
     ];
 
     public static function attributeMap()
@@ -147,10 +137,8 @@ class ApiResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
     }
 
     /**
@@ -162,6 +150,9 @@ class ApiResponse implements ArrayAccess
     {
         $invalid_properties = [];
 
+        if ($this->container['id'] === null) {
+            $invalid_properties[] = "'id' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -174,90 +165,51 @@ class ApiResponse implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['id'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets code
+     * Gets id
      * @return int
      */
-    public function getCode()
+    public function getId()
     {
-        return $this->container['code'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets code
-     * @param int $code
+     * Sets id
+     * @param int $id Unique ID
      * @return $this
      */
-    public function setCode($code)
+    public function setId($id)
     {
-        $this->container['code'] = $code;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets content
      * @return string
      */
-    public function getType()
+    public function getContent()
     {
-        return $this->container['type'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets content
+     * @param string $content Instructie voor chauffeur
      * @return $this
      */
-    public function setType($type)
+    public function setContent($content)
     {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     * @param string $message
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets additional_data
-     * @return object
-     */
-    public function getAdditionalData()
-    {
-        return $this->container['additional_data'];
-    }
-
-    /**
-     * Sets additional_data
-     * @param object $additional_data
-     * @return $this
-     */
-    public function setAdditionalData($additional_data)
-    {
-        $this->container['additional_data'] = $additional_data;
+        $this->container['content'] = $content;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ApiResponse
+ * CommunicationModel
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ namespace BumbalAccountPortal\Model;
 use \ArrayAccess;
 
 /**
- * ApiResponse Class Doc Comment
+ * CommunicationModel Class Doc Comment
  *
  * @category    Class
  * @package     BumbalAccountPortal
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class ApiResponse implements ArrayAccess
+class CommunicationModel implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,17 +47,19 @@ class ApiResponse implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'ApiResponse';
+    protected static $swaggerModelName = 'CommunicationModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'type' => 'string',
-        'message' => 'string',
-        'additional_data' => 'object'
+        'saywhen' => 'bool',
+        'bumbal' => 'bool',
+        'send_invite' => 'bool',
+        'send_eta' => 'bool',
+        'email' => 'string',
+        'phone_nr' => 'string'
     ];
 
     /**
@@ -65,10 +67,12 @@ class ApiResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => 'int32',
-        'type' => null,
-        'message' => null,
-        'additional_data' => null
+        'saywhen' => null,
+        'bumbal' => null,
+        'send_invite' => null,
+        'send_eta' => null,
+        'email' => null,
+        'phone_nr' => null
     ];
 
     public static function swaggerTypes()
@@ -86,10 +90,12 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'type' => 'type',
-        'message' => 'message',
-        'additional_data' => 'additional_data'
+        'saywhen' => 'saywhen',
+        'bumbal' => 'bumbal',
+        'send_invite' => 'send_invite',
+        'send_eta' => 'send_eta',
+        'email' => 'email',
+        'phone_nr' => 'phone_nr'
     ];
 
 
@@ -98,10 +104,12 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'type' => 'setType',
-        'message' => 'setMessage',
-        'additional_data' => 'setAdditionalData'
+        'saywhen' => 'setSaywhen',
+        'bumbal' => 'setBumbal',
+        'send_invite' => 'setSendInvite',
+        'send_eta' => 'setSendEta',
+        'email' => 'setEmail',
+        'phone_nr' => 'setPhoneNr'
     ];
 
 
@@ -110,10 +118,12 @@ class ApiResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'type' => 'getType',
-        'message' => 'getMessage',
-        'additional_data' => 'getAdditionalData'
+        'saywhen' => 'getSaywhen',
+        'bumbal' => 'getBumbal',
+        'send_invite' => 'getSendInvite',
+        'send_eta' => 'getSendEta',
+        'email' => 'getEmail',
+        'phone_nr' => 'getPhoneNr'
     ];
 
     public static function attributeMap()
@@ -147,10 +157,12 @@ class ApiResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
+        $this->container['saywhen'] = isset($data['saywhen']) ? $data['saywhen'] : null;
+        $this->container['bumbal'] = isset($data['bumbal']) ? $data['bumbal'] : null;
+        $this->container['send_invite'] = isset($data['send_invite']) ? $data['send_invite'] : null;
+        $this->container['send_eta'] = isset($data['send_eta']) ? $data['send_eta'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['phone_nr'] = isset($data['phone_nr']) ? $data['phone_nr'] : null;
     }
 
     /**
@@ -179,85 +191,127 @@ class ApiResponse implements ArrayAccess
 
 
     /**
-     * Gets code
-     * @return int
+     * Gets saywhen
+     * @return bool
      */
-    public function getCode()
+    public function getSaywhen()
     {
-        return $this->container['code'];
+        return $this->container['saywhen'];
     }
 
     /**
-     * Sets code
-     * @param int $code
+     * Sets saywhen
+     * @param bool $saywhen Whether or not activity should be synced with Saywhen
      * @return $this
      */
-    public function setCode($code)
+    public function setSaywhen($saywhen)
     {
-        $this->container['code'] = $code;
+        $this->container['saywhen'] = $saywhen;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets bumbal
+     * @return bool
+     */
+    public function getBumbal()
+    {
+        return $this->container['bumbal'];
+    }
+
+    /**
+     * Sets bumbal
+     * @param bool $bumbal Whether or not activity is handled by Bumbal Communication Server
+     * @return $this
+     */
+    public function setBumbal($bumbal)
+    {
+        $this->container['bumbal'] = $bumbal;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_invite
+     * @return bool
+     */
+    public function getSendInvite()
+    {
+        return $this->container['send_invite'];
+    }
+
+    /**
+     * Sets send_invite
+     * @param bool $send_invite Send invite
+     * @return $this
+     */
+    public function setSendInvite($send_invite)
+    {
+        $this->container['send_invite'] = $send_invite;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_eta
+     * @return bool
+     */
+    public function getSendEta()
+    {
+        return $this->container['send_eta'];
+    }
+
+    /**
+     * Sets send_eta
+     * @param bool $send_eta Send eta notice
+     * @return $this
+     */
+    public function setSendEta($send_eta)
+    {
+        $this->container['send_eta'] = $send_eta;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
      * @return string
      */
-    public function getType()
+    public function getEmail()
     {
-        return $this->container['type'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets type
-     * @param string $type
+     * Sets email
+     * @param string $email Email for customer communication
      * @return $this
      */
-    public function setType($type)
+    public function setEmail($email)
     {
-        $this->container['type'] = $type;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets phone_nr
      * @return string
      */
-    public function getMessage()
+    public function getPhoneNr()
     {
-        return $this->container['message'];
+        return $this->container['phone_nr'];
     }
 
     /**
-     * Sets message
-     * @param string $message
+     * Sets phone_nr
+     * @param string $phone_nr Phone nr for customer communication
      * @return $this
      */
-    public function setMessage($message)
+    public function setPhoneNr($phone_nr)
     {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets additional_data
-     * @return object
-     */
-    public function getAdditionalData()
-    {
-        return $this->container['additional_data'];
-    }
-
-    /**
-     * Sets additional_data
-     * @param object $additional_data
-     * @return $this
-     */
-    public function setAdditionalData($additional_data)
-    {
-        $this->container['additional_data'] = $additional_data;
+        $this->container['phone_nr'] = $phone_nr;
 
         return $this;
     }
