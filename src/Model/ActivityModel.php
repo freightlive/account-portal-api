@@ -56,6 +56,7 @@ class ActivityModel implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'int',
         'nr' => 'string',
+        'assignment_nr' => 'string',
         'activity_type_id' => 'int',
         'activity_type_name' => 'string',
         'status_name' => 'string',
@@ -77,6 +78,7 @@ class ActivityModel implements ArrayAccess
     protected static $swaggerFormats = [
         'id' => null,
         'nr' => null,
+        'assignment_nr' => null,
         'activity_type_id' => null,
         'activity_type_name' => null,
         'status_name' => null,
@@ -108,6 +110,7 @@ class ActivityModel implements ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'nr' => 'nr',
+        'assignment_nr' => 'assignment_nr',
         'activity_type_id' => 'activity_type_id',
         'activity_type_name' => 'activity_type_name',
         'status_name' => 'status_name',
@@ -130,6 +133,7 @@ class ActivityModel implements ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'nr' => 'setNr',
+        'assignment_nr' => 'setAssignmentNr',
         'activity_type_id' => 'setActivityTypeId',
         'activity_type_name' => 'setActivityTypeName',
         'status_name' => 'setStatusName',
@@ -152,6 +156,7 @@ class ActivityModel implements ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'nr' => 'getNr',
+        'assignment_nr' => 'getAssignmentNr',
         'activity_type_id' => 'getActivityTypeId',
         'activity_type_name' => 'getActivityTypeName',
         'status_name' => 'getStatusName',
@@ -199,6 +204,7 @@ class ActivityModel implements ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['nr'] = isset($data['nr']) ? $data['nr'] : null;
+        $this->container['assignment_nr'] = isset($data['assignment_nr']) ? $data['assignment_nr'] : null;
         $this->container['activity_type_id'] = isset($data['activity_type_id']) ? $data['activity_type_id'] : null;
         $this->container['activity_type_name'] = isset($data['activity_type_name']) ? $data['activity_type_name'] : null;
         $this->container['status_name'] = isset($data['status_name']) ? $data['status_name'] : null;
@@ -276,6 +282,27 @@ class ActivityModel implements ArrayAccess
     public function setNr($nr)
     {
         $this->container['nr'] = $nr;
+
+        return $this;
+    }
+
+    /**
+     * Gets assignment_nr
+     * @return string
+     */
+    public function getAssignmentNr()
+    {
+        return $this->container['assignment_nr'];
+    }
+
+    /**
+     * Sets assignment_nr
+     * @param string $assignment_nr Assignment Number
+     * @return $this
+     */
+    public function setAssignmentNr($assignment_nr)
+    {
+        $this->container['assignment_nr'] = $assignment_nr;
 
         return $this;
     }

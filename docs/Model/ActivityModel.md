@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | ID of this Activity | [optional] 
 **nr** | **string** | Number of this Activity | [optional] 
+**assignment_nr** | **string** | Assignment Number | [optional] 
 **activity_type_id** | **int** | Type ID of this Activity | [optional] 
 **activity_type_name** | **string** | Type of this Activity | [optional] 
 **status_name** | **string** | Status of this Activity | [optional] 
