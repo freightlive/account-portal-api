@@ -120,6 +120,13 @@ class ActivityModelTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "activity_tags"
+     */
+    public function testPropertyActivityTags()
+    {
+    }
+
+    /**
      * Test attribute "reference"
      */
     public function testPropertyReference()
@@ -151,13 +158,6 @@ class ActivityModelTest extends \PHPUnit_Framework_TestCase
      * Test attribute "address"
      */
     public function testPropertyAddress()
-    {
-    }
-
-    /**
-     * Test attribute "tags"
-     */
-    public function testPropertyTags()
     {
     }
 

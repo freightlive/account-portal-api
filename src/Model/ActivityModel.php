@@ -60,12 +60,12 @@ class ActivityModel implements ArrayAccess
         'activity_type_id' => 'int',
         'activity_type_name' => 'string',
         'status_name' => 'string',
+        'activity_tags' => 'int',
         'reference' => 'string',
         'duration' => 'int',
         'date_time_from' => '\DateTime',
         'date_time_to' => '\DateTime',
         'address' => '\BumbalAccountPortal\Model\AddressModel',
-        'tags' => '\BumbalAccountPortal\Model\TagModel',
         'communication' => '\BumbalAccountPortal\Model\CommunicationModel',
         'package_lines' => '\BumbalAccountPortal\Model\PackageLineModel[]',
         'notes' => '\BumbalAccountPortal\Model\NoteModel[]'
@@ -82,12 +82,12 @@ class ActivityModel implements ArrayAccess
         'activity_type_id' => null,
         'activity_type_name' => null,
         'status_name' => null,
+        'activity_tags' => null,
         'reference' => null,
         'duration' => null,
         'date_time_from' => 'date-time',
         'date_time_to' => 'date-time',
         'address' => null,
-        'tags' => null,
         'communication' => null,
         'package_lines' => null,
         'notes' => null
@@ -114,12 +114,12 @@ class ActivityModel implements ArrayAccess
         'activity_type_id' => 'activity_type_id',
         'activity_type_name' => 'activity_type_name',
         'status_name' => 'status_name',
+        'activity_tags' => 'activity_tags',
         'reference' => 'reference',
         'duration' => 'duration',
         'date_time_from' => 'date_time_from',
         'date_time_to' => 'date_time_to',
         'address' => 'address',
-        'tags' => 'tags',
         'communication' => 'communication',
         'package_lines' => 'package_lines',
         'notes' => 'notes'
@@ -137,12 +137,12 @@ class ActivityModel implements ArrayAccess
         'activity_type_id' => 'setActivityTypeId',
         'activity_type_name' => 'setActivityTypeName',
         'status_name' => 'setStatusName',
+        'activity_tags' => 'setActivityTags',
         'reference' => 'setReference',
         'duration' => 'setDuration',
         'date_time_from' => 'setDateTimeFrom',
         'date_time_to' => 'setDateTimeTo',
         'address' => 'setAddress',
-        'tags' => 'setTags',
         'communication' => 'setCommunication',
         'package_lines' => 'setPackageLines',
         'notes' => 'setNotes'
@@ -160,12 +160,12 @@ class ActivityModel implements ArrayAccess
         'activity_type_id' => 'getActivityTypeId',
         'activity_type_name' => 'getActivityTypeName',
         'status_name' => 'getStatusName',
+        'activity_tags' => 'getActivityTags',
         'reference' => 'getReference',
         'duration' => 'getDuration',
         'date_time_from' => 'getDateTimeFrom',
         'date_time_to' => 'getDateTimeTo',
         'address' => 'getAddress',
-        'tags' => 'getTags',
         'communication' => 'getCommunication',
         'package_lines' => 'getPackageLines',
         'notes' => 'getNotes'
@@ -208,12 +208,12 @@ class ActivityModel implements ArrayAccess
         $this->container['activity_type_id'] = isset($data['activity_type_id']) ? $data['activity_type_id'] : null;
         $this->container['activity_type_name'] = isset($data['activity_type_name']) ? $data['activity_type_name'] : null;
         $this->container['status_name'] = isset($data['status_name']) ? $data['status_name'] : null;
+        $this->container['activity_tags'] = isset($data['activity_tags']) ? $data['activity_tags'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['duration'] = isset($data['duration']) ? $data['duration'] : null;
         $this->container['date_time_from'] = isset($data['date_time_from']) ? $data['date_time_from'] : null;
         $this->container['date_time_to'] = isset($data['date_time_to']) ? $data['date_time_to'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['communication'] = isset($data['communication']) ? $data['communication'] : null;
         $this->container['package_lines'] = isset($data['package_lines']) ? $data['package_lines'] : null;
         $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
@@ -371,6 +371,27 @@ class ActivityModel implements ArrayAccess
     }
 
     /**
+     * Gets activity_tags
+     * @return int
+     */
+    public function getActivityTags()
+    {
+        return $this->container['activity_tags'];
+    }
+
+    /**
+     * Sets activity_tags
+     * @param int $activity_tags Single Tag to attach to Activity
+     * @return $this
+     */
+    public function setActivityTags($activity_tags)
+    {
+        $this->container['activity_tags'] = $activity_tags;
+
+        return $this;
+    }
+
+    /**
      * Gets reference
      * @return string
      */
@@ -471,27 +492,6 @@ class ActivityModel implements ArrayAccess
     public function setAddress($address)
     {
         $this->container['address'] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     * @return \BumbalAccountPortal\Model\TagModel
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     * @param \BumbalAccountPortal\Model\TagModel $tags
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
 
         return $this;
     }
