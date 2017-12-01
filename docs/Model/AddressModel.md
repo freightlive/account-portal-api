@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **latitude** | **float** | Latitude | [optional] 
 **longitude** | **float** | Longitude | [optional] 
 **contact_person** | **string** |  | [optional] 
+**emails** | [**\BumbalAccountPortal\Model\EmailModel[]**](EmailModel.md) |  | [optional] 
+**phone_nrs** | [**\BumbalAccountPortal\Model\PhoneNrModel[]**](PhoneNrModel.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

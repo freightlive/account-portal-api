@@ -66,7 +66,9 @@ class AddressModel implements ArrayAccess
         'iso_country' => 'string',
         'latitude' => 'float',
         'longitude' => 'float',
-        'contact_person' => 'string'
+        'contact_person' => 'string',
+        'emails' => '\BumbalAccountPortal\Model\EmailModel[]',
+        'phone_nrs' => '\BumbalAccountPortal\Model\PhoneNrModel[]'
     ];
 
     /**
@@ -86,7 +88,9 @@ class AddressModel implements ArrayAccess
         'iso_country' => null,
         'latitude' => 'float',
         'longitude' => 'float',
-        'contact_person' => null
+        'contact_person' => null,
+        'emails' => null,
+        'phone_nrs' => null
     ];
 
     public static function swaggerTypes()
@@ -116,7 +120,9 @@ class AddressModel implements ArrayAccess
         'iso_country' => 'iso_country',
         'latitude' => 'latitude',
         'longitude' => 'longitude',
-        'contact_person' => 'contact_person'
+        'contact_person' => 'contact_person',
+        'emails' => 'emails',
+        'phone_nrs' => 'phone_nrs'
     ];
 
 
@@ -137,7 +143,9 @@ class AddressModel implements ArrayAccess
         'iso_country' => 'setIsoCountry',
         'latitude' => 'setLatitude',
         'longitude' => 'setLongitude',
-        'contact_person' => 'setContactPerson'
+        'contact_person' => 'setContactPerson',
+        'emails' => 'setEmails',
+        'phone_nrs' => 'setPhoneNrs'
     ];
 
 
@@ -158,7 +166,9 @@ class AddressModel implements ArrayAccess
         'iso_country' => 'getIsoCountry',
         'latitude' => 'getLatitude',
         'longitude' => 'getLongitude',
-        'contact_person' => 'getContactPerson'
+        'contact_person' => 'getContactPerson',
+        'emails' => 'getEmails',
+        'phone_nrs' => 'getPhoneNrs'
     ];
 
     public static function attributeMap()
@@ -205,6 +215,8 @@ class AddressModel implements ArrayAccess
         $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
         $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
         $this->container['contact_person'] = isset($data['contact_person']) ? $data['contact_person'] : null;
+        $this->container['emails'] = isset($data['emails']) ? $data['emails'] : null;
+        $this->container['phone_nrs'] = isset($data['phone_nrs']) ? $data['phone_nrs'] : null;
     }
 
     /**
@@ -501,6 +513,48 @@ class AddressModel implements ArrayAccess
     public function setContactPerson($contact_person)
     {
         $this->container['contact_person'] = $contact_person;
+
+        return $this;
+    }
+
+    /**
+     * Gets emails
+     * @return \BumbalAccountPortal\Model\EmailModel[]
+     */
+    public function getEmails()
+    {
+        return $this->container['emails'];
+    }
+
+    /**
+     * Sets emails
+     * @param \BumbalAccountPortal\Model\EmailModel[] $emails
+     * @return $this
+     */
+    public function setEmails($emails)
+    {
+        $this->container['emails'] = $emails;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone_nrs
+     * @return \BumbalAccountPortal\Model\PhoneNrModel[]
+     */
+    public function getPhoneNrs()
+    {
+        return $this->container['phone_nrs'];
+    }
+
+    /**
+     * Sets phone_nrs
+     * @param \BumbalAccountPortal\Model\PhoneNrModel[] $phone_nrs
+     * @return $this
+     */
+    public function setPhoneNrs($phone_nrs)
+    {
+        $this->container['phone_nrs'] = $phone_nrs;
 
         return $this;
     }

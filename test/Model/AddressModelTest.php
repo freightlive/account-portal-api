@@ -167,4 +167,18 @@ class AddressModelTest extends \PHPUnit_Framework_TestCase
     public function testPropertyContactPerson()
     {
     }
+
+    /**
+     * Test attribute "emails"
+     */
+    public function testPropertyEmails()
+    {
+    }
+
+    /**
+     * Test attribute "phone_nrs"
+     */
+    public function testPropertyPhoneNrs()
+    {
+    }
 }

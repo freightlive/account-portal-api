@@ -94,10 +94,12 @@ Class | Method | HTTP request | Description
  - [AuthenticateModel](docs/Model/AuthenticateModel.md)
  - [AuthenticateResult](docs/Model/AuthenticateResult.md)
  - [CommunicationModel](docs/Model/CommunicationModel.md)
+ - [EmailModel](docs/Model/EmailModel.md)
  - [InstructionModel](docs/Model/InstructionModel.md)
  - [LinkModel](docs/Model/LinkModel.md)
  - [NoteModel](docs/Model/NoteModel.md)
  - [PackageLineModel](docs/Model/PackageLineModel.md)
+ - [PhoneNrModel](docs/Model/PhoneNrModel.md)
  - [TagModel](docs/Model/TagModel.md)
  - [TimeSlotModel](docs/Model/TimeSlotModel.md)
 
